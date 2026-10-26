@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Seamless background color across full viewport */
+html, body {
+    background-color: #f1f5f9;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+html.dark, html.dark body {
+    background-color: #090d16;
+    color: #f8fafc;
+}
+
+/* Dynamic background grid tinting */
+.cyber-grid {
+    background-size: 30px 30px;
+    background-image: 
+        linear-gradient(to right, rgba(29, 108, 216, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(29, 108, 216, 0.05) 1px, transparent 1px);
+}
+
+.dark .cyber-grid {
+    background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Scanline Overlay */
+.scanline {
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 240, 255, 0.02) 50%,
+        rgba(0, 240, 255, 0.02)
+    );
+    background-size: 100% 4px;
+}
+
+/* Glowing text accents */
+.glow-text-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 162, 255, 0.3);
+}
+
+/* Angular clip corners for tactical HUD UI */
+.clip-corner-tr {
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+.clip-button {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+    background: #1d6cd8;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00f0ff;
+}
+    
+@media (max-width: 767px) {
+    .nav-fade {
+        padding-right: 28px;
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+        mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    }
+}
