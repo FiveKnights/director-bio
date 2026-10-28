@@ -2,26 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 
 class PortfolioController extends Controller
 {
     public function index(): View
     {
+        // Sent to the page's JavaScript (Alpine) as window.PORTFOLIO_DATA
         $data = [
             'tabs'            => config('portfolio.tabs'),
             'skillCategories' => config('portfolio.skill_categories'),
-            'experience' => config('portfolio.experience'),
-            'skills'          => config('portfolio.skills'),
-            'projects' => collect(config('portfolio.projects'))->map(function ($project) {
-    $project['imageUrl'] = !empty($project['image']) ? asset($project['image']) : null;
-    return $project;
-})->all(),
+            'skills'          => Skill::visible()->ordered()->get()->map->toPortfolio()->values()->all(),
+            'projects'        => Project::visible()->ordered()->get()->map->toPortfolio()->values()->all(),
             'statuses'        => config('portfolio.statuses'),
-            'socials' => config('portfolio.socials'),
-            'contactUrl' => route('contact.store', [], false),
+            'contactUrl'      => route('contact.store', [], false),
         ];
 
-        return view('portfolio.index', $data + ['portfolio' => $data]);
+        return view('portfolio.index', $data + [
+            'portfolio'  => $data,
+            // Rendered by Blade only, so they don't need to go into the JavaScript data
+            'experience' => config('portfolio.experience', []),
+            'socials'    => config('portfolio.socials', []),
+        ]);
     }
 }
