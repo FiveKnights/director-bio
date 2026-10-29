@@ -2,6 +2,15 @@
 
 return [
 
+    'status_colors' => [
+        'green'  => 'bg-[#10b981]/10 text-[#10b981] border-[#10b981]/30',
+        'blue'   => 'bg-[#1d6cd8]/10 dark:bg-[#00f0ff]/10 text-[#1d6cd8] dark:text-[#00f0ff] border-[#1d6cd8]/30 dark:border-[#00f0ff]/30',
+        'amber'  => 'bg-[#f59e0b]/10 text-[#d97706] border-[#f59e0b]/30',
+        'red'    => 'bg-[#ef4444]/10 text-[#ef4444] border-[#ef4444]/30',
+        'gray'   => 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700',
+        'purple' => 'bg-[#8b5cf6]/10 text-[#7c3aed] border-[#8b5cf6]/30',
+    ],
+
     'seo' => [
         'title'       => 'Director Frost // Portfolio Terminal',
         'description' => 'Portfolio of Director Frost: Laravel, CodeIgniter 4 and ESP32 IoT developer.',
