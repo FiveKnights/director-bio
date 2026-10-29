@@ -1,16 +1,22 @@
 <!-- PAGE 2: DOSSIER -->
 <section x-show="activeTab === 'profile'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" style="display: none;">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto">
-        
+
         <!-- ID Card -->
         <div class="lg:col-span-4 bg-white/90 dark:bg-[#0e1420]/90 backdrop-blur-md border border-slate-300 dark:border-slate-800 p-6 shadow-md rounded-lg space-y-6">
             <div class="text-center space-y-3">
-                <div class="w-32 h-32 mx-auto bg-gradient-to-br from-[#1d6cd8] to-[#0f3c7a] dark:from-[#00f0ff] dark:to-[#1d6cd8] p-1 clip-corner-tr shadow-md">
+                @php $photo = config('portfolio.profile.photo'); @endphp
+                <div class="w-40 h-40 mx-auto bg-gradient-to-br from-[#1d6cd8] to-[#0f3c7a] dark:from-[#00f0ff] dark:to-[#1d6cd8] p-1 clip-corner-tr shadow-md">
+                    @if ($photo && file_exists(public_path($photo)))
+                    <img src="{{ asset($photo) }}" alt="Profile photo of Director Frost"
+                        class="w-full h-full object-cover object-top">
+                    @else
                     <div class="w-full h-full bg-slate-900 flex flex-col items-center justify-center text-white p-3 relative overflow-hidden">
                         <span class="font-tech text-3xl font-bold tracking-widest text-[#60a5fa] dark:text-[#00f0ff]">DF-09</span>
                         <span class="font-tech text-[9px] text-slate-400 uppercase tracking-widest mt-1">DIRECTOR FROST</span>
                         <div class="absolute -bottom-2 -right-2 text-[40px] font-bold text-white/5 font-tech select-none">HAAVK</div>
                     </div>
+                    @endif
                 </div>
 
                 <div>

@@ -76,3 +76,15 @@ html.dark, html.dark body {
         mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
     }
 }
+
+/* Scroll reveal: fades and rises once when first scrolled into view */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}

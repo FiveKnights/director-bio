@@ -1,6 +1,6 @@
 <div class="max-w-6xl mx-auto mt-10 space-y-6">
 
-    <div class="border-b border-slate-300 dark:border-slate-800 pb-2 flex justify-between items-center">
+    <div class="border-b border-slate-300 dark:border-slate-800 pb-2 flex justify-between items-center" data-reveal>
         <div>
             <span class="text-xs font-tech text-[#1d6cd8] dark:text-[#00f0ff] font-bold uppercase tracking-widest">// SERVICE RECORD</span>
             <h2 class="text-xl font-black text-slate-800 dark:text-slate-100 uppercase">EXPERIENCE TIMELINE</h2>
@@ -10,7 +10,7 @@
 
     <div class="relative ml-3 pl-8 space-y-6 border-l-2 border-[#1d6cd8]/30 dark:border-[#00f0ff]/30">
         @foreach ($experience as $item)
-            <div class="relative">
+            <div class="relative" data-reveal style="--delay: {{ ($loop->index % 3) * 90 }}ms; transition-delay: var(--delay);">
 
                 {{-- Timeline node --}}
                 <span class="absolute -left-[45px] top-4 w-6 h-6 rounded-full flex items-center justify-center text-[10px]

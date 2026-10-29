@@ -2,6 +2,10 @@
 
 return [
 
+    'profile' => [
+        'photo' => 'img/profile.jpg',
+    ],
+
     'status_colors' => [
         'green'  => 'bg-[#10b981]/10 text-[#10b981] border-[#10b981]/30',
         'blue'   => 'bg-[#1d6cd8]/10 dark:bg-[#00f0ff]/10 text-[#1d6cd8] dark:text-[#00f0ff] border-[#1d6cd8]/30 dark:border-[#00f0ff]/30',
